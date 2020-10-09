@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 600, to = 500;
+var xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 500;
 
 function tOP(){
     document.getElementById("top").innerHTML = "ALI";
@@ -41,28 +41,28 @@ function frame() {
             pyPast[i1] = ppy;
         }
         if (document.getElementById("top").innerHTML == "ALI") {
-            py -= 10;
-            if (py == -10) {
+            py -= 20;
+            if (py == -20) {
                 py += to;
             }
             head.style.top = py + "px";
         } else if (document.getElementById("right").innerHTML == "ALI") {
-            px += 10;
+            px += 20;
             if (px == lef) {
                 px -= lef;
             }
             head.style.left = px + "px";
         }
         else if (document.getElementById("bottom").innerHTML == "ALI") {
-            py += 10;
+            py += 20;
             if (py == to) {
                 py -= to;
             }
             head.style.top = py + "px";
         }
         else if (document.getElementById("left").innerHTML == "ALI") {
-            px -= 10;
-            if (px == -10) {
+            px -= 20;
+            if (px == -20) {
                 px += lef;
             }
             head.style.left = px + "px";
@@ -71,8 +71,8 @@ function frame() {
         numNotFound = true;
         if ((px == xnum) && (py == ynum)) {
             while(numNotFound){
-                xnum = Math.floor(Math.random() * (lef/10)) * 10;
-                ynum = Math.floor(Math.random() * (to/10)) * 10;
+                xnum = Math.floor(Math.random() * (lef/20)) * 20;
+                ynum = Math.floor(Math.random() * (to/20)) * 20;
                 for(var i3 = 0;i3<bodySize;i3++){
                     var checkX = document.getElementById("body"+i3).style.left;
                     var checky = document.getElementById("body"+i3).style.top;
