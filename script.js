@@ -14,13 +14,13 @@ function frame() {
         if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
             {bool2=true;nbdy.style.backgroundColor="#ffff00";}
     }
-    if ((bool2)||(document.getElementById("b").innerHTML=="Resume")) {
+    if (bool2) {
         var go = document.getElementById("go");
         go.innerHTML= "GAME OVER";
         go.style.display= "block";
         clearInterval(id);
     } else {
-
+     if(bInner.innerHTML=="Pause") {
         var pxPast = [], pyPast = [];
         for (var i1 = 0; i1 < bodySize; i1++) {
             var ppx = document.getElementById("body" + i1).style.left;
@@ -141,6 +141,7 @@ function handleTouchMove(evt) {
                 nbody.style.left = pxPast[i2 - 1];
             }
         }
+    }
     }
     var score = document.getElementById("score");
     score.innerHTML = ""+bodySize-1;
