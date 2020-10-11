@@ -9,7 +9,7 @@ function frame() {
     for(var i4 = 1;i4 < bodySize; i4++){
         var nbdy = document.getElementById("body"+i4);
         if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
-            {bool2=true;}
+            {bool2=true;nbdy.style.backgroundColor="#ffff00";}
     }
     if (bool2) {
         var go = document.getElementById("go");
