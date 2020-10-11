@@ -12,7 +12,9 @@ function frame() {
             {bool2=true;}
     }
     if (bool2) {
-        document.getElementById("go").innerHTML= "GAME OVER";
+        var go = document.getElementById("go");
+        go.innerHTML= "GAME OVER";
+        go.style.display= "block";
         clearInterval(id);
     } else {
 
