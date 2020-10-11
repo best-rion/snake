@@ -20,7 +20,7 @@ if(bool2){
 
 var id = setInterval(frame, 150);
 function frame() {
-    if (false) {
+    if (px>1500) {
         clearInterval(id);
     } else {
      if(bInner.innerHTML=="Pause") {
