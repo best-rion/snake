@@ -5,7 +5,8 @@ var bInner = document.getElementById("b");
 function pause(){
     if(bInner.innerHTML=="Pause"){ 
         bInner.innerHTML= "Resume";
-        bInner.style.backgroundColor="#000";}
+        bInner.style.backgroundColor="#000";
+        bInner.style.color="#fff";}
     else{bInner.innerHTML= "Pause";}
 }
 var id = setInterval(frame, 150);
