@@ -72,6 +72,8 @@ p{
     top: 0px;
     right: 0px;
     font-size: 23px;
+    background-color: #fff;
+    color: #000;
 }
 #b:active{
     background-color: #25e876;
