@@ -7,7 +7,9 @@ function pause(){
         bInner.innerHTML= "Resume";
         bInner.style.backgroundColor="#000";
         bInner.style.color="#fff";}
-    else{bInner.innerHTML= "Pause";}
+    else{bInner.innerHTML= "Pause";
+        bInner.style.backgroundColor="#fff";
+        bInner.style.color="#000";}
 }
 var id = setInterval(frame, 150);
 function frame() {
