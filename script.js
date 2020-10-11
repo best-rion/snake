@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 
 
 var id = setInterval(frame, 150);
@@ -54,8 +54,8 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
+    pSwipe = swip;
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        var pSwipe = swip;
         if (( xDiff > 0 )&&(pSwipe != "right")) {
             /* left swipe */
             swip="left";
@@ -64,7 +64,6 @@ function handleTouchMove(evt) {
             swip="right";
         }                       
     } else {
-        var pSwipe = swip;
         if (( yDiff > 0 )&&(pSwipe != "bottom")){
             /* up swipe */ 
             swip="top";
