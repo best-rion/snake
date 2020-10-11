@@ -3,7 +3,9 @@ var food = document.getElementById("food");
 var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
 function pause(){
-    if(bInner.innerHTML=="Pause"){ bInner.innerHTML= "Resume";}
+    if(bInner.innerHTML=="Pause"){ 
+        bInner.innerHTML= "Resume";
+        bInner.style.backgroundColor="#000";}
     else{bInner.innerHTML= "Pause";}
 }
 var id = setInterval(frame, 150);
