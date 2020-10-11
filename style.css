@@ -70,5 +70,9 @@ p{
     width: 100px;
     position: absolute;
     top: 0px;
-    left: 0px;
+    right: 0px;
+}
+#b{
+    background-color: black;
+    color: #fff;
 }
