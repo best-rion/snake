@@ -71,8 +71,9 @@ p{
     position: fixed;
     top: 0px;
     right: 0px;
+    font-size: 23px;
 }
 #b:active{
-    background-color: black;
+    background-color: #25e876;
     color: #fff;
 }
