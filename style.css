@@ -27,7 +27,7 @@ body{height: 100vh;width: 100%;}
      top: 0px;
      left: 0px;
      background-color: transparent;
-     border: 1px solid #000;
+     border: 3px solid #000;
      border-radius: 50%;
      }
 #food{
