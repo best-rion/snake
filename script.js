@@ -64,6 +64,7 @@ function handleTouchMove(evt) {
             swip="right";
         }                       
     } else {
+        var pSwipe = swip;
         if (( yDiff > 0 )&&(pSwipe != "bottom")){
             /* up swipe */ 
             swip="top";
