@@ -26,7 +26,7 @@ function frame() {
     for(var i4 = 1;i4 < bodySize; i4++){
         var nbdy = document.getElementById("body"+i4);
         if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
-            {bodySize-=(i4  + 1);bool2=true;death++;}
+            {bodySize=i4;bool2=true;death++;}
     }
 
 
