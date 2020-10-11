@@ -1,7 +1,9 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
 var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
-
+function pause(){
+    document.getElementById("b").innerHTML = "Resume";
+}
 
 var id = setInterval(frame, 150);
 function frame() {
@@ -11,7 +13,7 @@ function frame() {
         if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
             {bool2=true;nbdy.style.backgroundColor="#ffff00";}
     }
-    if (bool2) {
+    if ((bool2)||(document.getElementById("b").innerHTML=="Resume")) {
         var go = document.getElementById("go");
         go.innerHTML= "GAME OVER";
         go.style.display= "block";
