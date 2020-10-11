@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800, death =0;
 var bInner = document.getElementById("b");
 function pause(){
     if(bInner.innerHTML=="Pause"){ 
@@ -11,18 +11,16 @@ function pause(){
         bInner.style.backgroundColor="#fff";
         bInner.style.color="#000";}
 }
+
+if(bool2){
+    var go = document.getElementById("go");
+    go.innerHTML= ""+death;
+    go.style.display= "block";
+}
+
 var id = setInterval(frame, 150);
 function frame() {
-    var bool2 = false;
-    for(var i4 = 1;i4 < bodySize; i4++){
-        var nbdy = document.getElementById("body"+i4);
-        if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
-            {bool2=true;nbdy.style.backgroundColor="#ffff00";}
-    }
-    if (bool2) {
-        var go = document.getElementById("go");
-        go.innerHTML= "GAME OVER";
-        go.style.display= "block";
+    if (false) {
         clearInterval(id);
     } else {
      if(bInner.innerHTML=="Pause") {
@@ -150,4 +148,15 @@ function handleTouchMove(evt) {
     }
     var score = document.getElementById("score");
     score.innerHTML = ""+bodySize-1;
+    
+
+
+    
+    var bool2=false;
+    for(var i4 = 1;i4 < bodySize; i4++){
+        var nbdy = document.getElementById("body"+i4);
+        if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
+            {bodySize-=(i4  + 1);bool2=true;death++;}
+    }
+
 }
