@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 500;
+var swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 1100;
 
 
 var id = setInterval(frame, 150);
