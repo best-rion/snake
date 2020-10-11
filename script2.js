@@ -15,21 +15,22 @@ function pause(){
 
 var id = setInterval(frame, 150);
 function frame() {
-    var bool2=false;
-    for(var i4 = 1;i4 < bodySize; i4++){
-        var nbdy = document.getElementById("body"+i4);
-        if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
-            {bodySize-=(i4  + 1);bool2=true;death++;}
-    if(bool2){
-        var go = document.getElementById("go");
-        go.innerHTML= ""+death;
-        go.style.display= "block";
-    }
 
     if (px>1500) {
         clearInterval(id);
     } else {
      if(bInner.innerHTML=="Pause") {
+
+
+    var bool2=false;
+    for(var i4 = 1;i4 < bodySize; i4++){
+        var nbdy = document.getElementById("body"+i4);
+        if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
+            {bodySize-=(i4  + 1);bool2=true;death++;}
+    }
+
+
+
         var pxPast = [], pyPast = [];
         for (var i1 = 0; i1 < bodySize; i1++) {
             var ppx = document.getElementById("body" + i1).style.left;
@@ -154,6 +155,11 @@ function handleTouchMove(evt) {
     }
     var score = document.getElementById("score");
     score.innerHTML = ""+bodySize-1;
+
+    if(bool2){
+        var go = document.getElementById("go");
+        go.innerHTML= ""+death;
+        go.style.display= "block";
     }
 
 }
