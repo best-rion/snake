@@ -5,7 +5,14 @@ var swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, 
 
 var id = setInterval(frame, 150);
 function frame() {
-    if ((px == 1200) && (py == 700)) {
+    var bool2 = false;
+    for(var i4 = 1;i4 < bodySize; i4++){
+        var nbdy = document.getElementById("body"+i4);
+        if((nbdy.style.left==head.style.left)&&(nbdy.style.top==head.style.top))
+            {bool2=true;}
+    }
+    if (bool2) {
+        document.getElementById("go").innerHTML= "GAME OVER";
         clearInterval(id);
     } else {
 
@@ -46,18 +53,19 @@ function handleTouchMove(evt) {
     var yDiff = yDown - yUp;
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
+        var pSwipe = swip;
+        if (( xDiff > 0 )&&(pSwipe != "right")) {
             /* left swipe */
             swip="left";
-        } else {
+        } else if (( xDiff < 0 )&&(pSwipe != "left")){
             /* right swipe */
             swip="right";
         }                       
     } else {
-        if ( yDiff > 0 ) {
+        if (( yDiff > 0 )&&(pSwipe != "bottom")){
             /* up swipe */ 
             swip="top";
-        } else { 
+        } else if (( yDiff < 0 )&&(pSwipe != "top")){ 
             /* down swipe */
             swip="bottom";
         }                                                                 
@@ -98,22 +106,20 @@ function handleTouchMove(evt) {
             head.style.left = px + "px";
         }
 
-        numNotFound = true;
         if ((px == xnum) && (py == ynum)) {
+            numNotFound = true;
             while(numNotFound){
+                numNotFound = false;
                 xnum = Math.floor(Math.random() * (lef/20)) * 20;
                 ynum = Math.floor(Math.random() * (to/20)) * 20;
                 for(var i3 = 0;i3<bodySize;i3++){
                     var checkX = document.getElementById("body"+i3).style.left;
-                    var checky = document.getElementById("body"+i3).style.top;
-                    if(((xnum+"px")==checkX)||(ynum+"px"==checky)){
+                    var checkY = document.getElementById("body"+i3).style.top;
+                    if(((xnum+"px")==checkX)&&((ynum+"px")==checkY)){
                         numNotFound = true;
-                    }else{
-                        numNotFound = false;
                     }
                 }
             }
-            console.log(xnum);
             food.style.left = xnum + "px";
             food.style.top = ynum + "px";
 
