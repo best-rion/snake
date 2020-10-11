@@ -1,31 +1,7 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 500;
+var swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 500;
 
-function tOP(){
-    document.getElementById("top").innerHTML = "ALI";
-    document.getElementById("left").innerHTML = "left";
-    document.getElementById("bottom").innerHTML = "bottom";
-    document.getElementById("right").innerHTML = "right";
-}
-function rigHT(){
-    document.getElementById("right").innerHTML = "ALI";
-    document.getElementById("left").innerHTML = "left";
-    document.getElementById("bottom").innerHTML = "bottom";
-    document.getElementById("top").innerHTML = "top";
-}
-function bottOM(){
-    document.getElementById("bottom").innerHTML = "ALI";
-    document.getElementById("left").innerHTML = "left";
-    document.getElementById("right").innerHTML = "right";
-    document.getElementById("top").innerHTML = "top";
-}
-function leFT(){
-    document.getElementById("left").innerHTML = "ALI";
-    document.getElementById("bottom").innerHTML = "bottom";
-    document.getElementById("right").innerHTML = "right";
-    document.getElementById("top").innerHTML = "top";
-}
 
 var id = setInterval(frame, 150);
 function frame() {
@@ -40,27 +16,81 @@ function frame() {
             pxPast[i1] = ppx;
             pyPast[i1] = ppy;
         }
-        if (document.getElementById("top").innerHTML == "ALI") {
+
+        document.addEventListener('touchstart', handleTouchStart, false);        
+        document.addEventListener('touchmove', handleTouchMove, false);
+
+        var xDown = null;                                                        
+        var yDown = null;
+
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */
+            swip="left";
+        } else {
+            /* right swipe */
+            swip="right";
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+            swip="top";
+        } else { 
+            /* down swipe */
+            swip="bottom";
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+
+
+
+
+        if (swip=="top") {
             py -= 20;
             if (py == -20) {
                 py += to;
             }
             head.style.top = py + "px";
-        } else if (document.getElementById("right").innerHTML == "ALI") {
+        } else if (swip=="right") {
             px += 20;
             if (px == lef) {
                 px -= lef;
             }
             head.style.left = px + "px";
         }
-        else if (document.getElementById("bottom").innerHTML == "ALI") {
+        else if (swip=="bottom") {
             py += 20;
             if (py == to) {
                 py -= to;
             }
             head.style.top = py + "px";
         }
-        else if (document.getElementById("left").innerHTML == "ALI") {
+        else if (swip=="left") {
             px -= 20;
             if (px == -20) {
                 px += lef;
