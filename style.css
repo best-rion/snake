@@ -42,41 +42,8 @@ p{
     font-size: 30px;
 }
 span{
-    color: rgb(255, 1, 1);
-}
-.button{
-    height: 400px;
-    width: 400px;
-    position: absolute;
-    bottom: 100px;
-    transform: translateX(-50%);
-    left: 50%;
-}
-.btn{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    font-size: 25px;
-    font-weight: 600;
-}
-.btn:hover{
-    background-color: #111111;
+    backhround-color: rgb(255, 1, 1);
     color: white;
-}
-#top{
-    top:0%;
-    left: 50%;
-}
-#right{
-    top: 50%;
-    left: 100%;
-}
-#bottom{
-    top: 100%;
-    left: 50%;
-}
-#left{
-    top: 50%;
-    left: 0%;
+    padding: 0px 5px;
+    font-weight: bold;
 }
