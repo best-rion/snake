@@ -137,7 +137,11 @@ function frame() {
 
                 var sbody = document.createElement("div");
                 sbody.setAttribute("id", ("body" + bodySize));
-                sbody.setAttribute("class", "body");
+                if(bodySize%2==0){
+                sbody.setAttribute("class", "bodyOdd");
+                      }else{
+                sbody.setAttribute("class", "bodyEven");
+                      }
                 document.getElementById("box").appendChild(sbody);
                 bodySize++;
             }
