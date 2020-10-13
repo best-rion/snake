@@ -159,7 +159,7 @@ function frame() {
             }
         }
     }
-    if(eat){audioEat.play();}
+    if(eat){audioDie.play();}
     score.innerHTML = "" + bodySize - 1;
 }
 if(bool2){audioDie.play();}
