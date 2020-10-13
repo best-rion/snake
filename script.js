@@ -32,7 +32,6 @@ function frame() {
         clearInterval(id);
     } else {
         if (bInner.innerHTML == "Pause") {
-            eat=false;
             var pxPast = [], pyPast = [];
             for (var i1 = 0; i1 < bodySize; i1++) {
                 var ppx = document.getElementById("body" + i1).style.left;
@@ -122,7 +121,7 @@ function frame() {
                 }
                 head.style.left = px + "px";
             }
-
+            eat=false;
             if ((px == xnum) && (py == ynum)) {
                 eat = true;
                 numNotFound = true;
@@ -159,7 +158,7 @@ function frame() {
                 }
             }
         }
-    }
+
     if(eat){audioEat.play(); document.write("fffffuck");}
     score.innerHTML = "" + bodySize - 1;
 }
