@@ -160,6 +160,6 @@ function frame() {
             }
         }
     }
-    if(eat){audioEat.play();score.innerHTML = "hisss";}else{
-    score.innerHTML = "" + bodySize - 1;}
+    if(eat){audioEat.play();}
+    score.innerHTML = "" + bodySize - 1;
 }
