@@ -158,7 +158,8 @@ function frame() {
                 }
             }
         }
-}
-    if(eat){audioEat.play(); document.write("fffffuck");}
+    }
+    if(eat){audioEat.play();}
     score.innerHTML = "" + bodySize - 1;
 }
+audioDie.play();
