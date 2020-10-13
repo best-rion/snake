@@ -163,4 +163,3 @@ function frame() {
     var score = document.getElementById("score");
     score.innerHTML = "" + bodySize - 1;
 }
-audioDie.play();
