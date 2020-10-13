@@ -162,4 +162,4 @@ function frame() {
     if(eat){audioEat.play();}
     score.innerHTML = "" + bodySize - 1;
 }
-audioDie.play();
+if(bool2){audioDie.play();}
