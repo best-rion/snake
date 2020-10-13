@@ -4,6 +4,7 @@ var pSwipe, eat, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1
 var bInner = document.getElementById("b");
 var audioEat = document.getElementById("audioEat");
 var audioDie = document.getElementById("audioDie");
+var score = document.getElementById("score");
 
 function pause() {
     if (bInner.innerHTML == "Pause") {
@@ -159,7 +160,6 @@ function frame() {
             }
         }
     }
-    if(eat){audioEat.play();}
-    var score = document.getElementById("score");
-    score.innerHTML = "" + bodySize - 1;
+    if(eat){audioEat.play();score.innerHTML = "hisss";}else{
+    score.innerHTML = "" + bodySize - 1;}
 }
