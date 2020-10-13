@@ -2,6 +2,8 @@ var head = document.getElementById("body0");
 var food = document.getElementById("food");
 var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
+var audio = document.getElementById("audio");
+
 function pause() {
     if (bInner.innerHTML == "Pause") {
         bInner.innerHTML = "Resume";
@@ -119,6 +121,7 @@ function frame() {
             }
 
             if ((px == xnum) && (py == ynum)) {
+                audio.play();
                 numNotFound = true;
                 while (numNotFound) {
                     numNotFound = false;
