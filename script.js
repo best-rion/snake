@@ -158,7 +158,6 @@ function frame() {
                 }
             }
         }
-    }
     if(eat){audioDie.play();bInner.style.backgroundColor="red";}
     score.innerHTML = "" + bodySize - 1;
 }
