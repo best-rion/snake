@@ -28,7 +28,6 @@ function frame() {
         var go = document.getElementById("go");
         go.innerHTML = "GAME OVER";
         go.style.display = "block";
-        audioDie.play();
         clearInterval(id);
     } else {
         if (bInner.innerHTML == "Pause") {
@@ -164,3 +163,4 @@ function frame() {
     var score = document.getElementById("score");
     score.innerHTML = "" + bodySize - 1;
 }
+audioDie.play();
