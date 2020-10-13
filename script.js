@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var pSwipe, eat, die, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var pSwipe, eat, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
 var audioEat = document.getElementById("audioEat");
 var audioDie = document.getElementById("audioDie");
