@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var pSwipe, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var pSwipe, eat, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
 var audio = document.getElementById("audio");
 
@@ -30,6 +30,7 @@ function frame() {
         clearInterval(id);
     } else {
         if (bInner.innerHTML == "Pause") {
+            eat=false;
             var pxPast = [], pyPast = [];
             for (var i1 = 0; i1 < bodySize; i1++) {
                 var ppx = document.getElementById("body" + i1).style.left;
@@ -121,7 +122,7 @@ function frame() {
             }
 
             if ((px == xnum) && (py == ynum)) {
-                audio.play();
+                eat = true;
                 numNotFound = true;
                 while (numNotFound) {
                     numNotFound = false;
@@ -157,6 +158,7 @@ function frame() {
             }
         }
     }
+    if(eat){audio.play();}
     var score = document.getElementById("score");
     score.innerHTML = "" + bodySize - 1;
 }
