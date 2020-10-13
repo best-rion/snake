@@ -158,7 +158,7 @@ function frame() {
                 }
             }
         }
-
+}
     if(eat){audioEat.play(); document.write("fffffuck");}
     score.innerHTML = "" + bodySize - 1;
 }
