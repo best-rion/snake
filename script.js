@@ -2,7 +2,6 @@ var head = document.getElementById("body0");
 var food = document.getElementById("food");
 var pSwip, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
-var swipe = document.getElementById("swipe");
 var score = document.getElementById("score");
 
 function pause() {
@@ -120,7 +119,6 @@ function frame() {
                 head.style.left = px + "px";
             }
             if ((px == xnum) && (py == ynum)) {
-                swipe.play();
                 numNotFound = true;
                 while (numNotFound) {
                     numNotFound = false;
