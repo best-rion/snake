@@ -66,7 +66,6 @@ function frame() {
 
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
-                swipe.play();
                 pSwipe = swip;
                 if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
                     if ((xDiff > 0) && (pSwipe != "right")) {
@@ -121,7 +120,7 @@ function frame() {
                 head.style.left = px + "px";
             }
             if ((px == xnum) && (py == ynum)) {
-                eat = true;
+                swipe.play();
                 numNotFound = true;
                 while (numNotFound) {
                     numNotFound = false;
