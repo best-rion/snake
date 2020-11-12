@@ -1,9 +1,8 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var pSwipe, eat, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var pSwip, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
-var audioEat = document.getElementById("audioEat");
-var audioDie = document.getElementById("audioDie");
+var swipe = document.getElementById("swipe");
 var score = document.getElementById("score");
 
 function pause() {
@@ -67,7 +66,7 @@ function frame() {
 
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
-
+                swipe.play();
                 pSwipe = swip;
                 if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
                     if ((xDiff > 0) && (pSwipe != "right")) {
@@ -121,7 +120,6 @@ function frame() {
                 }
                 head.style.left = px + "px";
             }
-            eat=false;
             if ((px == xnum) && (py == ynum)) {
                 eat = true;
                 numNotFound = true;
@@ -132,7 +130,7 @@ function frame() {
                     for (var i3 = 0; i3 < bodySize; i3++) {
                         var checkX = document.getElementById("body" + i3).style.left;
                         var checkY = document.getElementById("body" + i3).style.top;
-                        if (((xnum + "px") == checkX) && ((ynum + "px") == checkY)) {
+                        if ((xnum + "px" == checkX) && (ynum + "px" == checkY)) {
                             numNotFound = true;
                         }
                     }
@@ -142,11 +140,7 @@ function frame() {
 
                 var sbody = document.createElement("div");
                 sbody.setAttribute("id", ("body" + bodySize));
-                if(bodySize%2==0){
-                sbody.setAttribute("class", "bodyOdd");
-                      }else{
-                sbody.setAttribute("class", "bodyEven");
-                      }
+                sbody.setAttribute("class", "body");
                 document.getElementById("box").appendChild(sbody);
                 bodySize++;
             }
@@ -159,7 +153,5 @@ function frame() {
             }
         }
     }
-    if(eat){audioEat.play();}
     score.innerHTML = "" + bodySize - 1;
 }
-audioDie.play();
