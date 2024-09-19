@@ -16,7 +16,7 @@ function pause() {
         bInner.style.color = "#000";
     }
 }
-var id = setInterval(frame, 100);
+var id = setInterval(frame, 120);
 function frame() {
     var bool2 = false;
     for (var i4 = 1; i4 < bodySize; i4++) {
