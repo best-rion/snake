@@ -1,6 +1,6 @@
 var head = document.getElementById("body0");
 var food = document.getElementById("food");
-var pSwip, swip, xnum = 100, ynum = 100, px = 0, py = 0, kee, bodySize = 1, lef = 700, to = 800;
+var pSwipe, swipe, xnum = 100, ynum = 100, px = 0, py = 0, pKey, key, bodySize = 1, lef = 700, to = 800;
 var bInner = document.getElementById("b");
 var score = document.getElementById("score");
 
@@ -16,7 +16,7 @@ function pause() {
         bInner.style.color = "#000";
     }
 }
-var id = setInterval(frame, 150);
+var id = setInterval(frame, 100);
 function frame() {
     var bool2 = false;
     for (var i4 = 1; i4 < bodySize; i4++) {
@@ -36,6 +36,27 @@ function frame() {
                 var ppy = document.getElementById("body" + i1).style.top;
                 pxPast[i1] = ppx;
                 pyPast[i1] = ppy;
+            }
+
+            ////////////// For PC //////////////
+            document.onkeydown = checkKey;
+
+            pKey = key;
+            function checkKey(e) {
+                e = e || window.event;
+
+                if (e.keyCode == '38' && pKey != "bottom") {
+                    key = "top";
+                }
+                else if (e.keyCode == '39' && pKey != "left") {
+                    key = "right";
+                }
+                else if (e.keyCode == '40' && pKey != "top") {
+                    key = "bottom";
+                }
+                else if (e.keyCode == '37' && pKey != "right") {
+                    key = "left";
+                }
             }
 
             document.addEventListener('touchstart', handleTouchStart, false);
@@ -65,22 +86,22 @@ function frame() {
 
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
-                pSwipe = swip;
+                pSwipe = swipe;
                 if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
                     if ((xDiff > 0) && (pSwipe != "right")) {
                         /* left swipe */
-                        swip = "left";
+                        swipe = "left";
                     } else if ((xDiff < 0) && (pSwipe != "left")) {
                         /* right swipe */
-                        swip = "right";
+                        swipe = "right";
                     }
                 } else {
                     if ((yDiff > 0) && (pSwipe != "bottom")) {
                         /* up swipe */
-                        swip = "top";
+                        swipe = "top";
                     } else if ((yDiff < 0) && (pSwipe != "top")) {
                         /* down swipe */
-                        swip = "bottom";
+                        swipe = "bottom";
                     }
                 }
                 /* reset values */
@@ -91,27 +112,27 @@ function frame() {
 
 
 
-            if (swip == "top") {
+            if (swipe == "top" || key == "top") {
                 py -= 20;
                 if (py == -20) {
                     py += to;
                 }
                 head.style.top = py + "px";
-            } else if (swip == "right") {
+            } else if (swipe == "right" || key == "right") {
                 px += 20;
                 if (px == lef) {
                     px -= lef;
                 }
                 head.style.left = px + "px";
             }
-            else if (swip == "bottom") {
+            else if (swipe == "bottom" || key == "bottom") {
                 py += 20;
                 if (py == to) {
                     py -= to;
                 }
                 head.style.top = py + "px";
             }
-            else if (swip == "left") {
+            else if (swipe == "left" || key == "left") {
                 px -= 20;
                 if (px == -20) {
                     px += lef;
