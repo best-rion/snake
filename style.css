@@ -1,6 +1,14 @@
 *{padding: 0;margin: 0;box-sizing: border-box;}
+
+html {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 body{height: 100vh;width: 100%;}
+
 .flex{display: flex;}
+
 #box{
     position: relative;
     top: 150px;
