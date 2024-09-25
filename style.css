@@ -9,7 +9,7 @@ body{height: 100vh;width: 100%;}
 
 .flex{display: flex;}
 
-#box{
+#container{
     position: relative;
     top: 150px;
     height: 804px;
@@ -19,7 +19,7 @@ body{height: 100vh;width: 100%;}
     margin-left: auto;
     margin-right: auto;
 }
-#body0{
+#cellNumber0{
     position: absolute;
     height: 20px;
     width: 20px;
@@ -35,7 +35,7 @@ body{height: 100vh;width: 100%;}
     top: 100px;
     left: 100px;
 }
-.body{
+.cell{
     position: absolute;
     height: 20px;
     width: 20px;
@@ -54,13 +54,13 @@ p{
     padding: 0px 5px;
     font-weight: bold;
 }
-#go{
+#gameOver{
     background-color: #000;
     color: white;
     padding: 0px 5px;
     display: none;
 }
-#b{
+#button{
     height: 70px;
     width: 100px;
     position: fixed;
